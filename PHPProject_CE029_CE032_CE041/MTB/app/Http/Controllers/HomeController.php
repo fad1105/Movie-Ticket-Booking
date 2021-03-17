@@ -32,4 +32,8 @@ class HomeController extends Controller
     {
         return view('adminHome');
     }
+    public function branchHome()
+    {
+        return view('branchHome');
+    }
 }
