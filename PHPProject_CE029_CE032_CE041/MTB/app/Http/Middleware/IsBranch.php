@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class IsAdmin
+class IsBranch
 {
     /**
      * Handle an incoming request.
@@ -14,23 +14,24 @@ class IsAdmin
      * @param  \Closure  $next
      * @return mixed
      */
-    
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()->is_admin == 1){
+       // return $next($request);
+        if(auth()->user()->is_branch == 1){
             return $next($request);
         }
         else {
-            if(auth()->user()->is_branch == 1){
+            if(auth()->user()->is_admin == 1){
                 //return $next($request);
-                return redirect('branch/home')->with('errors',"You don't have admin access.");
+                return redirect('admin/home')->with('errors',"You don't have branch access.");
             }
             else {
-                return redirect('home')->with('errors',"You don't have admin access.");
-            }  
-              } 
+                return redirect('home')->with('errors',"You don't have branch access.");
+            }
+        } 
    
         //return ("error You don't have admin access.");
+
         //return redirect('home')->with('error',"You don't have admin access.");
     }
 }

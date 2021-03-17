@@ -8,9 +8,9 @@
                 <div class="card-header">Dashboard</div>
                 <div class="card-body">
                     @if(session()->has('errors'))
-                    <div style="color: red">    {{$errors}} </div>
+                    <div style="color: red">    {{$errors}}</div>
                     @else
-                    <div style="color: green">    You are an Admin.</div>
+                    <div style="color: green">    You are a branch owner.</div>
                     @endif
                 </div>
             </div>
