@@ -23,18 +23,14 @@ Auth::routes();
 
 
 
-<<<<<<< HEAD
-Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('is_customer'); 
-=======
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('is_customer'); 
->>>>>>> bd29926cdf040d1a42a8276f5c672a1c94d8bfb9
 
 
 //for Admin
 
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
-<<<<<<< HEAD
+
 Route::get('branch/home', [HomeController::class, 'branchHome'])->name('branch.home')->middleware('is_branch');
-=======
-Route::get('branch/home', [HomeController::class, 'branchHome'])->name('branch.home')->middleware('is_branch');
->>>>>>> bd29926cdf040d1a42a8276f5c672a1c94d8bfb9
+
+//Route::get('branch/home', [HomeController::class, 'branchHome'])->name('branch.home')->middleware('is_branch');
+

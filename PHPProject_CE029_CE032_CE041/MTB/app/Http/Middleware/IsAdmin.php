@@ -23,7 +23,6 @@ class IsAdmin
         else {
             if(auth()->user()->is_branch == 1){
                 //return $next($request);
-<<<<<<< HEAD
                 return redirect('branch/home')->with('errors',"You don't have admin access.");
             }
             else {
@@ -33,16 +32,5 @@ class IsAdmin
    
         //return ("error You don't have admin access.");
         //return redirect('home')->with('error',"You don't have admin access.");
-=======
-                return redirect('branch/home')->with('error',"You don't have admin access.");
-            }
-            else {
-                return redirect('home')->with('error',"You don't have admin access.");
-            }
-        }
-   
-        //return ("error You don't have admin access.");
-        return redirect('home')->with('error',"You don't have admin access.");
->>>>>>> bd29926cdf040d1a42a8276f5c672a1c94d8bfb9
     }
 }
