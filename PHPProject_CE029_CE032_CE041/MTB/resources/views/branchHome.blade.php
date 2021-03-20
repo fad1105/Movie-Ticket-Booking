@@ -1,28 +1,16 @@
-@extends('layouts.app')
-   
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-                <div class="card-body">
-<<<<<<< HEAD
-                    @if(session()->has('errors'))
-                    <div style="color: red">    {{$errors}}</div>
-                    @else
-                    <div style="color: green">    You are a branch owner.</div>
-                    @endif
-=======
-                    You are branch owner.
->>>>>>> bd29926cdf040d1a42a8276f5c672a1c94d8bfb9
-                </div>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{__('Movies')}}
+        </h2>
+    </x-slot>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <livewire:movies/>
             </div>
         </div>
     </div>
-</div>
-<<<<<<< HEAD
-@endsection
-=======
-@endsection
->>>>>>> bd29926cdf040d1a42a8276f5c672a1c94d8bfb9
+</x-app-layout>
+

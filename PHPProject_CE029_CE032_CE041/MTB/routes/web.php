@@ -33,4 +33,10 @@ Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home
 Route::get('branch/home', [HomeController::class, 'branchHome'])->name('branch.home')->middleware('is_branch');
 
 //Route::get('branch/home', [HomeController::class, 'branchHome'])->name('branch.home')->middleware('is_branch');
+Route::middleware(['auth:sanctum', 'verified'])->get('/branch/home/movies', function () {
+    return view('branchHome');
+})->name('movies');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

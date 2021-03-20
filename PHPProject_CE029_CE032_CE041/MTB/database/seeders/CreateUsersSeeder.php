@@ -30,7 +30,7 @@ class CreateUsersSeeder extends Seeder
             [
                 'name'=>'branch',
                 'email'=>'branch@gmail.com',
-                 'is_branch'=>'1',
+                'is_branch'=>'1',
                 'password'=> bcrypt('12345678'),
              ],
         ];
