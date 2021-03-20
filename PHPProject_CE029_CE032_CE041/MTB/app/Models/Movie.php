@@ -15,6 +15,7 @@ class Movie extends Model
         'genres',
         'release_date',
         'duration',
+        'image_url',
     ];
 
     use HasFactory;

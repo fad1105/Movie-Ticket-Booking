@@ -11,6 +11,7 @@ class AddMovieController extends Controller
         $movie->movie_name = $req->movie_name  ;
         $movie->language = $req->language  ;
         $movie->trailer_link = $req->trailer_link  ;
+        $movie->image_url = $req->image_link  ;
         $movie->cinema_tags = $req->cinema_tags  ;
         $movie->genres = implode(" , ",$req->genres)  ;
         $movie->release_date = $req->release_date  ;
