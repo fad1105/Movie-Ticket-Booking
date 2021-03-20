@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BranchRegisterController ;
+use App\Http\Controllers\AddMovieController ;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +31,21 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //for Admin
 
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+//ADD branch
+Route::view('admin/branch_register', 'branch_register')->name('branch_register')->middleware('is_admin');
+Route::post('admin/branch_register', [BranchRegisterController::class, 'branch_register'])->middleware('is_admin');
+
+//add Movie
+Route::view('admin/add_movie', 'add_movie')->name('add_movie')->middleware('is_admin');
+Route::post('admin/add_movie', [AddMovieController::class, 'add_movie'])->middleware('is_admin');
+
+
 
 Route::get('branch/home', [HomeController::class, 'branchHome'])->name('branch.home')->middleware('is_branch');
 
 //Route::get('branch/home', [HomeController::class, 'branchHome'])->name('branch.home')->middleware('is_branch');
 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
