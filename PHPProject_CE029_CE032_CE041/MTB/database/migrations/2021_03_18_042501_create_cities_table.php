@@ -20,6 +20,8 @@ class CreateCitiesTable extends Migration
             $table->string('city_name');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade') ;
             $table->string('address');
+            $table->string('state');
+            $table->string('pincode');
 
             
             $table->timestamps();

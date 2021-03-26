@@ -11,16 +11,41 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    
+                @if(auth()->user()->is_branch == 1) 
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"> 
+                    <x-jet-nav-link href="{{ route('branch.home') }}" :active="request()->routeIs('branch.home')">
+                        {{ __('Home') }}
                     </x-jet-nav-link>
                 </div>
+                
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('movies') }}" :active="request()->routeIs('movies')">
+                    <x-jet-nav-link href="{{ route('branch.movies') }}" :active="request()->routeIs('branch.movies')">
                         {{ __('Movies') }}
+                    </x-jet-nav-link> 
+                </div> 
+
+                @endif
+
+                @if(auth()->user()->is_admin == 1) 
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"> 
+                    <x-jet-nav-link href="{{ route('admin.home') }}" :active="request()->routeIs('admin.home')">
+                        {{ __('Home') }}
                     </x-jet-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('admin.branch_register') }}" :active="request()->routeIs('admin.branch_register')">
+                        {{ __('Add Branch') }}
+                    </x-jet-nav-link> 
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('admin.add_movie') }}" :active="request()->routeIs('admin.add_movie')">
+                        {{ __('Add Movie') }}
+                    </x-jet-nav-link> 
+                </div>
+                @endif
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -142,16 +167,39 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+        @if(auth()->user()->is_branch == 1) 
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+            <x-jet-responsive-nav-link href="{{ route('branch.home') }}" :active="request()->routeIs('branch.home')">
+                {{ __('Home') }}
             </x-jet-responsive-nav-link>
         </div>
+
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('movies') }}" :active="request()->routeIs('movies')">
+            <x-jet-responsive-nav-link href="{{ route('branch.movies') }}" :active="request()->routeIs('branch.movies')">
                 {{ __('Movies') }}
             </x-jet-responsive-nav-link>
+        </div> 
+        @endif 
+
+        @if(auth()->user()->is_admin == 1)
+        <div class="pt-2 pb-3 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('admin.home') }}" :active="request()->routeIs('admin.home')">
+                {{ __('Home') }}
+            </x-jet-responsive-nav-link>
         </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('admin.branch_register') }}" :active="request()->routeIs('admin.branch_register')">
+                {{ __('Add Branch') }}
+            </x-jet-responsive-nav-link>
+        </div> 
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('admin.add_movie') }}" :active="request()->routeIs('admin.add_movie')">
+                {{ __('Add Movie') }}
+            </x-jet-responsive-nav-link>
+        </div>
+        @endif
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">

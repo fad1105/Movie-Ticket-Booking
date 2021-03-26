@@ -24,7 +24,7 @@
             </tr>
         </thead>
         <tbody>
-        @foreach($movies as $movie) 
+        @foreach($movies as $movie)
         <tr>
         	<td class="border px-4 py-2">{{ $movie->id}}</td>
         	<td class="border px-4 py-2">{{ $movie->movie_name}}</td>

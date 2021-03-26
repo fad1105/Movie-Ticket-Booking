@@ -14,7 +14,7 @@ class Movies extends Component
     public function render()
     { 
         $movies = Movie::all();
-        return view('livewire.movies', ['movies' => $movies]);
+        return view('livewire.movies', ['movies' => $movies]); 
     } 
 
     protected $rules = [
@@ -26,7 +26,6 @@ class Movies extends Component
     {   
     	$this->validate(); 
     	$city_id = City::where('user_id',auth()->user()->id)->get();
-    //    return view('hello',['city'=>$city]);
     	$movie_id = $id;
     	$date = $this->movie['date'];
     	$time = $this->movie['time']; 

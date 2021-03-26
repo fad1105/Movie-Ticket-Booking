@@ -7,20 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Movie extends Model
 {
-	use HasFactory;
+
     protected $fillable = [
         'movie_name',
         'language',
         'trailer_link',
         'cinema_tags',
         'genres',
-        'release_data',
+        'release_date',
         'duration',
+        'image_url',
     ];
-
-    public function shows()
-    {
-        return $this->hasMany(\App\Models\Show::class);
-    }
 
 }
