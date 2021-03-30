@@ -36,15 +36,26 @@
         }
 
         .col-25 {
-            -ms-flex: 25%;
+            -ms-flex: 10%;
             /* IE10 */
-            flex: 25%;
+            flex: 33%;
         }
 
         .col-50 {
             -ms-flex: 50%;
             /* IE10 */
             flex: 50%;
+        }
+        .col-100 {
+            -ms-flex: 50%;
+            /* IE10 */
+            flex: 100%;
+            font-family: Arial;
+
+            font-size: 30px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            padding: 20px;
         }
 
         .col-75 {
@@ -55,7 +66,8 @@
 
         .col-25,
         .col-50,
-        .col-75 {
+        .col-75,
+        .col-100 {
             padding: 0 16px;
         }
 
@@ -77,17 +89,11 @@
             border-radius: 3px;
         }
 
-        input[type=password] {
-            width: 100%;
-            margin-bottom: 20px;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-
         input[type=checkbox] {
-            margin-bottom: 20px;
-            padding: 12px;
+            margin-top: 15px;
+            margin-right: 8px;
+            margin-bottom: 15px;
+            padding: 10px;
 
             border: 1px solid #ccc;
             border-radius: 3px;
@@ -155,8 +161,10 @@
                 <form action="" method="POST">
                     @csrf
                     <div class="row">
+                        <div class="col-100">
+                      <b> <h1>Movie Info</h1></b> 
+                        </div>
                         <div class="col-50">
-                            <h2>Movie Info</h2>
 
                             <label>Movie Name</label>
                             <input type="text" name="movie_name" placeholder="bahubali 2" required>
@@ -210,7 +218,7 @@
 
                         <div class="col-50">
                             <!-- <h3>Branch Info</h3> -->
-                            <h2><br></h2>
+                    
 
 
 
@@ -279,9 +287,9 @@
                                 <div class="col-25">
                                     <input type="checkbox" name="genres[]" value="Sports"> Sports
                                 </div>
-                                <div class="col-25">
+                                <!-- <div class="col-25">
                                     <input type="checkbox" name="genres[]" value="Mystery"> Mystery
-                                </div>
+                                </div> -->
 
                             </div>
 

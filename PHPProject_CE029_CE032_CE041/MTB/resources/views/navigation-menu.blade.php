@@ -11,7 +11,14 @@
                 </div>
 
                 <!-- Navigation Links -->
-                    
+                @if(auth()->user()->is_customer == 1) 
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"> 
+                    <x-jet-nav-link href="{{ route('user.show') }}" :active="request()->routeIs('user.show')">
+                        {{ __('Show Bookings') }}
+                    </x-jet-nav-link>
+                </div>
+                @endif
+
                 @if(auth()->user()->is_branch == 1) 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"> 
                     <x-jet-nav-link href="{{ route('branch.home') }}" :active="request()->routeIs('branch.home')">
@@ -22,6 +29,12 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('branch.movies') }}" :active="request()->routeIs('branch.movies')">
                         {{ __('Movies') }}
+                    </x-jet-nav-link> 
+                </div> 
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('branch.shows') }}" :active="request()->routeIs('branch.shows')">
+                        {{ __('Shows') }}
                     </x-jet-nav-link> 
                 </div> 
 
@@ -41,8 +54,20 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('admin.branches') }}" :active="request()->routeIs('admin.branches')">
+                        {{ __('Branches') }}
+                    </x-jet-nav-link> 
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('admin.add_movie') }}" :active="request()->routeIs('admin.add_movie')">
                         {{ __('Add Movie') }}
+                    </x-jet-nav-link> 
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('admin.movies') }}" :active="request()->routeIs('admin.movies')">
+                        {{ __('Movies') }}
                     </x-jet-nav-link> 
                 </div>
                 @endif
@@ -179,7 +204,21 @@
                 {{ __('Movies') }}
             </x-jet-responsive-nav-link>
         </div> 
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('branch.shows') }}" :active="request()->routeIs('branch.shows')">
+                {{ __('Shows') }}
+            </x-jet-responsive-nav-link>
+        </div> 
         @endif 
+
+        @if(auth()->user()->is_admin == 1)
+        <div class="pt-2 pb-3 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('user.show') }}" :active="request()->routeIs('user.show')">
+                {{ __('Show Bookings') }}
+            </x-jet-responsive-nav-link>
+        </div>
+        @endif
 
         @if(auth()->user()->is_admin == 1)
         <div class="pt-2 pb-3 space-y-1">
@@ -195,8 +234,20 @@
         </div> 
 
         <div class="pt-2 pb-3 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('admin.branches') }}" :active="request()->routeIs('admin.branches')">
+                {{ __('Branches') }}
+            </x-jet-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('admin.add_movie') }}" :active="request()->routeIs('admin.add_movie')">
                 {{ __('Add Movie') }}
+            </x-jet-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('admin.movies') }}" :active="request()->routeIs('admin.movies')">
+                {{ __('Movies') }}
             </x-jet-responsive-nav-link>
         </div>
         @endif

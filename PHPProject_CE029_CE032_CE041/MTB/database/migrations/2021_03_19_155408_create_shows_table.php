@@ -21,6 +21,7 @@ class CreateShowsTable extends Migration
             $table->foreign('movie_id')->references('id')->on('movies')->onDelete('cascade');
             $table->date('show_date');
             $table->time('show_time');
+            $table->Integer('price');
             $table->timestamps();
         });
     }

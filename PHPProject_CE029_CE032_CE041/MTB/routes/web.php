@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BranchRegisterController ;
 use App\Http\Controllers\AddMovieController ;
-
+use App\Http\Controllers\BookingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,10 +23,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('/home', [App\Http\Controllers\HomeController::class, 'customerHome'])->name('home')->middleware('is_customer'); 
+Route::post('/show_movie_detail' ,[BookingController::class, 'show_movie_detail'])->middleware('is_customer'); 
 
+Route::get('/location', [App\Http\Controllers\HomeController::class, 'index'])->name('location')->middleware('is_customer'); 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('is_customer'); 
-
+Route::middleware(['auth:sanctum', 'verified'])->get('/showbookings', function () {
+    return view('userShow');
+})->name('user.show');
 
 //for Admin
 
@@ -37,7 +41,13 @@ Route::post('admin/branch_register', [BranchRegisterController::class, 'branch_r
 //add Movie
 Route::post('admin/add_movie', [AddMovieController::class, 'add_movie'])->middleware('is_admin');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin/movies', function () {
+    return view('adminMovie');
+})->name('admin.movies');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin/branches', function () {
+    return view('adminBranch');
+})->name('admin.branches');
 
   
 
@@ -48,6 +58,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/branch/home', function ()
 Route::middleware(['auth:sanctum', 'verified'])->get('/branch/movies', function () {
     return view('branchMovie');
 })->name('branch.movies');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/branch/shows', function () {
+    return view('branchShow');
+})->name('branch.shows');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/admin/home', function () {
@@ -69,6 +83,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-
-
-
+Route::get('/show_movie_detail');

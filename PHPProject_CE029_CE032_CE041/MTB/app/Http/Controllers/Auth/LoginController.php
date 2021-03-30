@@ -57,7 +57,7 @@ class LoginController extends Controller
             if (auth()->user()->is_admin == 1 ) {
                 return redirect()->route('admin.home');
             }elseif (auth()->user()->is_customer == 1 ) {
-                return redirect()->route('home');
+                return redirect()->route('location');
             }elseif (auth()->user()->is_branch == 1 ) {
                 return redirect()->route('branch.home');
             }else{

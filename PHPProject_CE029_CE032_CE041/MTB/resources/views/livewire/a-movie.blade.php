@@ -20,7 +20,6 @@
                 <th class="px-4 py-2">Genres</th>
                 <th class="px-4 py-2">Duration</th>
                 <th class="px-4 py-2">Release Date</th>
-                <th class="px-4 py-2">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -34,49 +33,9 @@
         	<td class="border px-4 py-2">{{ $movie->genres}}</td>
         	<td class="border px-4 py-2">{{ $movie->duration}}</td>
         	<td class="border px-4 py-2">{{ $movie->release_date}}</td>
-        	<td class="border px-4 py-2">
-        		<x-jet-button wire:click="confirmMovieAdd({{ $movie->id}})" class="bg-orange-500 hover:bg-orange-700">Add</x-jet-button>
-            </td>
         </tr>
         @endforeach
         </tbody>
         </table>
     </div>
-    <x-jet-dialog-modal wire:model="confirmingMovieAdd">
-        <x-slot name="title">
-            Add this movie to your Show list
-        </x-slot>
- 
-        <x-slot name="content"> 
-            <div class="col-span-6 sm:col-span-4">
-                <x-jet-label for="date" value="{{ __('Date') }}" />
-                <x-jet-input id="date" type="date" class="mt-1 block w-full" wire:model.defer="movie.date" />
-                <x-jet-input-error for="movie.date" class="mt-2" />
-            </div>
-
-            <div class="col-span-6 sm:col-span-4 mt-4"> 
-                <x-jet-label for="time" value="{{ __('Starting time')}}" />
-                <x-jet-input id="time" type="time" class="mt-1 block w-full" wire:model.defer="movie.time" />
-                <x-jet-input-error for="movie.time" class="mt-2" />
-            </div>
-
-            <div class="col-span-6 sm:col-span-4 mt-4"> 
-                <x-jet-label for="price" value="{{ __('Price')}}" />
-                <x-jet-input id="price" type="Number" class="mt-1 block w-full" wire:model.defer="movie.price" />
-                <x-jet-input-error for="movie.price" class="mt-2" />
-            </div>
-
-        </x-slot>
- 
-        <x-slot name="footer">
-            <x-jet-secondary-button wire:click="$set('confirmingMovieAdd', false)" wire:loading.attr="disabled">
-                {{ __('Nevermind') }}
-            </x-jet-secondary-button>
- 
-            <x-jet-danger-button class="ml-2" wire:click="addMovie({{ $confirmingMovieAdd }})" wire:loading.attr="disabled">
-                {{ __('Save')}}
-            </x-jet-danger-button>
-        </x-slot>
-    </x-jet-dialog-modal>
-
 </div>
