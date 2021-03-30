@@ -46,6 +46,7 @@ class HomeController extends Controller
     {
         return view('branchHome');
     }
+
 }
 
 ?>

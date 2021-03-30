@@ -34,6 +34,7 @@
             flex-wrap: wrap;
             margin: 0 -16px;
         }
+        
 
         .col-25 {
             -ms-flex: 10%;
@@ -98,6 +99,8 @@
             border: 1px solid #ccc;
             border-radius: 3px;
         }
+
+
 
         label {
             margin-bottom: 10px;

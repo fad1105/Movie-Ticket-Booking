@@ -19,6 +19,7 @@ use App\Http\Controllers\BookingController;
 
 Route::get('/', function () {
     return view('welcome');
+    
 });
 
 Auth::routes();
@@ -83,4 +84,25 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+
+
+//coutomer
+Route::get('/location', [App\Http\Controllers\HomeController::class, 'index'])->name('location')->middleware('is_customer');
+Route::post('/home', [App\Http\Controllers\HomeController::class, 'customerHome'])->middleware('is_customer'); 
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'customerHome'])->middleware('is_customer'); 
+Route::post('/show_movie_detail' ,[BookingController::class, 'show_movie_detail'])->middleware('is_customer'); ;
+
 Route::get('/show_movie_detail');
+
+Route::post('/seat_booking' ,[BookingController::class, 'seat_booking'])->middleware('is_customer'); ;
+
+
+Route::get('/seat_booking');
+
+Route::post('/booking' ,[BookingController::class, 'booking'])->middleware('is_customer'); 
+
+Route::post('/show_ticket' ,[BookingController::class, 'show_ticket'])->middleware('is_customer'); 
+
+
+
+
