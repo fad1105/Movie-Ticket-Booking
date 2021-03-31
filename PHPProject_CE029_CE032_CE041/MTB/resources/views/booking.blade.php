@@ -1,3 +1,4 @@
+<x-app-layout>
 <!DOCTYPE html>
 <html>
 
@@ -199,3 +200,4 @@
 </body>
 
 </html>
+</x-app-layout>

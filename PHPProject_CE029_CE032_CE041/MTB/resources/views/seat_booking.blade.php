@@ -1,3 +1,4 @@
+<x-app-layout>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,10 +11,10 @@
     <title>seat Book</title>
     <style>
         input[type=checkbox] {
-            margin-top: 15px;
-            margin-right: 1px;
-            margin-bottom: 20px;
-            padding: 20px;
+            margin-top: 10px;
+            margin-right: 3px;
+            margin-bottom: 10px;
+            padding: 10px;
 
             border: 1px solid #ccc;
             border-radius: 3px;
@@ -57,7 +58,7 @@
 
         .column {
             float: 100%;
-            width: 60%;
+            width: 70%;
             margin-bottom: 15px;
             margin-left: 80px;
             margin-right: 80px;
@@ -154,7 +155,7 @@
                          
                          <label for="chackbox">
                          @if(in_array(number_format(($j*10) + ($i+1) ), $booked_seat)) 
-                            <input type="checkbox" name="seat[]" value={{$i+1}} disabled="disabled"  style="background-color: black;">
+                            <input type="checkbox" name="seat[]" value={{$i+1}} disabled="disabled"  style="background-color: green;">
                             @else
                             <input type="checkbox" name="seat[]" value={{$i+1}} >
                             @endif
@@ -172,7 +173,7 @@
                           
                              <label for="chackbox">
                              @if(in_array(number_format(($j*10) + ($i+1) ), $booked_seat)) 
-                                <input type="checkbox" name="seat[]" value={{number_format(($j*10) + ($i+1) )}}  disabled="disabled">
+                                <input type="checkbox" name="seat[]" value={{number_format(($j*10) + ($i+1) )}}  disabled="disabled" style="background-color: green; ">
                             @else
                             <input type="checkbox" name="seat[]" value={{number_format(($j*10) + ($i+1) )}} >
                             @endif
@@ -201,3 +202,4 @@
 </body>
 
 </html>
+</x-app-layout>

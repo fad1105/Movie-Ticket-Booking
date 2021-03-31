@@ -1,3 +1,4 @@
+<x-app-layout>
 <!DOCTYPE html>
 <html>
 <head>
@@ -110,7 +111,7 @@
                 <br>
 
                 @foreach($cities as $city)
-                </br>
+                <br>
                 <form action="/home" method="post">
                     @csrf
                     <input type="hidden" name="city_id" value={{$city->id}}>
@@ -125,8 +126,8 @@
 
             </div>
         </div>
-        </div>
     </center>
 </body>
 
 </html>
+</x-app-layout>
