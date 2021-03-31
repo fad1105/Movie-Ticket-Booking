@@ -1,3 +1,4 @@
+<x-app-layout>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +14,6 @@
 </head>
 
 <body>
-
     <br><br>
     <div class="row" style="margin-left: 50px;">
         @foreach($movies as $movie)
@@ -38,7 +38,6 @@
                         <input type="hidden" name="movie_id" value={{$movie->id}} >
                         <input type="hidden" name="city_id" value={{$city_id}}>
                         <input type="submit" value="book now" class="btn btn-outline-success">
-
                     </form>
                     <!-- <i style="font-size:19px" class="fa mb-3">&#xf041</i> -->
                 </div>
@@ -49,3 +48,4 @@
 </body>
 
 </html>
+</x-app-layout>

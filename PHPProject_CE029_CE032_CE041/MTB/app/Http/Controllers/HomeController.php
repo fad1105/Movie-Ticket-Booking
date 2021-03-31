@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Movie;
-use App\Models\Show ;
-use App\Models\City ;
+use App\Models\Show;
+use App\Models\City;
 class HomeController extends Controller
 {
     /**
@@ -24,8 +24,7 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        //return view('home');
+    { 
         $cities = City::all();
         return view('location',['cities'=>$cities]);
     }
@@ -36,18 +35,18 @@ class HomeController extends Controller
     {
         return view('adminHome');
     }
+
+    public function customerHome(Request $req){
+        $movies = Show::where('city_id',$req->city_id)->distinct()->get('movie_id');
+        $movies_name = Movie::whereIn('id',$movies)->get();
+        return view('customer_home',['movies'=>$movies_name,'city_id'=>$req->city_id]);
+    }
+
     public function branchHome()
     {
         return view('branchHome');
     }
 
-    public function customerHome(Request $req){
-        //$req = 1 ;
-        $movies = Show::where('city_id',$req->city_id)->distinct()->get('movie_id');
-        $movies_name = Movie::whereIn('id',$movies)->get();
-        return view('customer_home',['movies'=>$movies_name,'city_id'=>$req->city_id]);
-        
-    }
 }
 
 ?>

@@ -13,7 +13,7 @@ class Show extends Model
     	'movie_id',
     	'show_date',
     	'show_time',
-        
+        'price',
     ];
 
     public function city()

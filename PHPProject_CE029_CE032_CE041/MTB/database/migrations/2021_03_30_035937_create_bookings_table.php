@@ -16,11 +16,10 @@ class CreateBookingsTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('payment_id')->unsigned()->index();
+            $table->foreign('payment_id')->references('id')->on('payments')->onDelete('cascade');
             $table->bigInteger('show_id')->unsigned()->index();
-            $table->foreign('payment_id')->references('id')->on('payments')->onDelete('cascade') ;
-            $table->foreign('show_id')->references('id')->on('shows')->onDelete('cascade') ;
+            $table->foreign('show_id')->references('id')->on('shows')->onDelete('cascade');
             $table->integer('seat_no');
-            
             $table->timestamps();
         }); 
     }

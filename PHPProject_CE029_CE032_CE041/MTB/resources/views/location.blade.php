@@ -1,5 +1,20 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<style>
+    body {
+      background-image: url('cool-background1.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: cover;
+    } 
+    </style>
+    <style>
+            
+<!DOCTYPE html>
+<html>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">

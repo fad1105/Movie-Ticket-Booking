@@ -28,12 +28,14 @@ class Movies extends Component
     	$city_id = City::where('user_id',auth()->user()->id)->get();
     	$movie_id = $id;
     	$date = $this->movie['date'];
-    	$time = $this->movie['time']; 
+    	$time = $this->movie['time'];
+        $price = $this->movie['price'];
         Show::create([
     			'city_id' => $city_id[0]->id,
     			'movie_id' => $movie_id,
     			'show_date' => $date,
-    			'show_time' => $time
+    			'show_time' => $time,
+                'price' => $price,
     		]);
     		session()->flash('message', 'Movie Added Successfully'); 
             $this->confirmingMovieAdd = false;
