@@ -1,3 +1,4 @@
+<x-app-layout>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -149,6 +150,7 @@
 </head>
 
 <body>
+    
     <br><br>
     <center>
         <div class="container">
@@ -252,7 +254,7 @@
                                             @csrf
                                             <!-- <input type="hidden" id="{{$t->id}}" name="show_id" value={{$t->id}}> -->
                                             <!--  <button type="submit" class="btn btn-primary">Update</button> -->
-                                            <button type="submit" name="show_id" value={{$t->id}} class="btn btn-outline-success" style="margin-right: 5px; margin-left :10px;" >{{$t->show_time}}</button>
+                                            <button type="submit" name="show_id" value={{$t->id}} class="btn btn-outline-success" style="margin-right: 5px; margin-left :10px;" >{{$t->show_time}} <div style="color : rad;">INR {{$t->price}}</div></button>
                                             
                                             @endforeach
                                             <br>
@@ -268,8 +270,7 @@
                 </div>
             </div>
     </center>
-
-
 </body>
 
 </html>
+</x-app-layout>

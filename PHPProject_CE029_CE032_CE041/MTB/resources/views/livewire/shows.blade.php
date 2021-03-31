@@ -15,8 +15,8 @@
             <thead>
             <tr>
                 <th class="px-4 py-2">Id</th>
-                <th class="px-4 py-2">City id</th>
-                <th class="px-4 py-2">Movie id</th>
+                
+                <th class="px-4 py-2">Movie name</th>
                 <th class="px-4 py-2">Date</th>
                 <th class="px-4 py-2">Time</th>
                 <th class="px-4 py-2">Price</th>
@@ -26,8 +26,8 @@
         <tbody>
         <tr>
             <td class="border px-4 py-2">{{ $show->id}}</td>
-            <td class="border px-4 py-2">{{ $show->city_id}}</td>
-            <td class="border px-4 py-2">{{ $show->movie_id}}</td>
+           
+            <td class="border px-4 py-2">{{ $show->movie_name}}</td>
             <td class="border px-4 py-2">{{ $show->show_date}}</td>
             <td class="border px-4 py-2">{{ $show->show_time}}</td>
             <td class="border px-4 py-2">{{ $show->price}}</td>

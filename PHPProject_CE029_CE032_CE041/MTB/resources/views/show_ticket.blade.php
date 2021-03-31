@@ -1,3 +1,4 @@
+<x-app-layout>
 <!DOCTYPE html>
 <html>
 
@@ -120,7 +121,7 @@
 
 <body>
 
-  <br>
+  
   <div class="row">
     <div class="container" style="float: 50%; width : 100% ;margin-bottom : -10px; ">
       <center>
@@ -133,25 +134,25 @@
 
     <div class="container" style="float: 50%; width : 34% ; ">
 
-      <h4>Seat Number <span class="price" style="color:black"></h4>
+      <h4>Seat Number <span class="price" style="color:black"></h4><hr>
       <div style="margin-right: 20px;">
         @foreach($seat as $s)
         {{$s}} ,
         @endforeach
       </div>
       </span></p>
-
+      <br>
 
 <hr>  
-      <h4>Cart <span class="price" style="color:black"></h4>
+      <h4>Cart <span class="price" style="color:black"></h4><hr>
 
 
       <p>total seat <span class="price">{{$count}}</span></p>
-      <p>per seat price <span class="price">100</span></p>
+      <p>per seat price <span class="price">{{$show[0]->price}}</span></p>
 
 
       <hr>
-      <p>Total <span class="price" style="color:black"><b>{{number_format($count * 100)}}</b></span></p>
+      <p>Total <span class="price" style="color:black"><b>{{number_format($count * $show[0]->price)}}</b></span></p>
 
     </div>
 
@@ -160,14 +161,14 @@
 
 
 
-      <h4>Address <span class="price" style="color:black"></h4>
+      <h4>Address <span class="price" style="color:black"></h4><hr>
       <p>{{$city[0]->address}}</p>
       <p> {{$city[0]->city_name}}, </p>
       <p>{{$city[0]->state}}
                                 -{{$city[0]->pincode}}</p>
-      
+                                <br>
       <hr>
-      <h4>date and time <span class="price" style="color:black"></h4>
+      <h4>date and time <span class="price" style="color:black"></h4><hr>
 
       <p>Date <span class="price">{{$show[0]->show_date}}</span> </p>
       <p>Time<span class="price">{{$show[0]->show_time}}</span> </p>
@@ -179,7 +180,7 @@
 
     <div class="container" style="float: 50%; width : 33% ">
 
-      <h4>movie detail <span class="price" style="color:black"></h4>
+      <h4>movie detail <span class="price" style="color:black"></h4><hr>
       
       <p>Movie name <span class="price">{{$movies[0]->movie_name}}</span> </p>
       <p>Release Date : <span class="price">{{$movies[0]->release_date}}</span> </p>
@@ -204,3 +205,4 @@
 </body>
 
 </html>
+</x-app-layout>
