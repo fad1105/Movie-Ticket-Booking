@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BranchRegisterController ;
 use App\Http\Controllers\AddMovieController ;
 use App\Http\Controllers\BookingController;
+use App\Http\Livewire\ShowBooking ;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -100,5 +101,6 @@ Route::post('/booking' ,[BookingController::class, 'booking'])->middleware('is_c
 Route::post('/show_ticket' ,[BookingController::class, 'show_ticket'])->middleware('is_customer'); 
 Route::get('/show_ticket');
 
+Route::post('/show_ticket' ,[BookingController::class, 'show_ticket'])->middleware('is_customer'); 
 
 

@@ -20,6 +20,7 @@ class BookingController extends Controller
     {
         
         $show_id =  $req->show_id;
+       
         $booked_seat = Booking::where('show_id' , $show_id)->get('seat_no') ;
         $seat = array();
         $seat[0] = 0;
@@ -39,13 +40,14 @@ class BookingController extends Controller
     public function booking(Request $req)
     {
         $show_id =  $req->show_id;
+        $show = Show::where('id', $show_id)->get();
         $count = count($req->seat);
         if($count == 0){
             echo "<center></h4>please select  seat<h4></center>";
             
         }
         $seat = $req->seat;
-        return view('booking', ['count' => $count, 'seat' => $seat, 'show_id' => $show_id]);
+        return view('booking', ['count' => $count, 'seat' => $seat, 'show_id' => $show_id ,'show'=>$show ]);
         //return $count = count($req->seat) ;
 
 

@@ -145,12 +145,12 @@
       
       
       <p>total  seat  <span class="price">{{$count}}</span></p>
-      <p>per seat price <span class="price">100</span></p>
-      <input type="hidden" name="price" value="100" >
+      <p>per seat price <span class="price">{{$show[0]->price}}</span></p>
+      <input type="hidden" name="price" value={{$show[0]->price}} >
 
      
       <hr>
-      <p>Total <span class="price" style="color:black"><b>{{number_format($count * 100)}}</b></span></p>
+      <p>Total <span class="price" style="color:black"><b>{{number_format($count *$show[0]->price)}}</b></span></p>
     </div>
 
     <div class="container" style="float: 50%; width : 50% ">
