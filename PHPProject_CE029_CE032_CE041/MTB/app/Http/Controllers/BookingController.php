@@ -75,7 +75,12 @@ class BookingController extends Controller
             $booking->seat_no = $req->seat[$i];
             $booking->save();
         }
-        
+        $seat = $req->seat ;
+        $count = $no_of_seat ;
+        $show = Show::where('id', $show_id)->get();
+        $movies = Movie::where('id', $show[0]->movie_id)->get();
+        $city = City::where('id', $show[0]->city_id)->get();
+        return view('show_ticket', ['count' => $count, 'seat' => $seat, 'show' => $show,'movies' => $movies, 'city' => $city]);
     }
 
 

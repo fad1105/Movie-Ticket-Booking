@@ -90,6 +90,6 @@ Route::post('/booking' ,[BookingController::class, 'booking'])->middleware('is_c
 
 Route::post('/show_ticket' ,[BookingController::class, 'show_ticket'])->middleware('is_customer'); 
 
-
+Route::get('/show_ticket');
 
 
