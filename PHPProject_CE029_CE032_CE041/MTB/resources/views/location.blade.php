@@ -1,4 +1,19 @@
-<x-app-layout>         
+<x-app-layout>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<style>
+    body {
+      background-image: url('cool-background1.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: cover;
+    } 
+    </style>
+    <style>
+            
 <!DOCTYPE html>
 <html>
 
@@ -96,7 +111,7 @@
                 <br>
 
                 @foreach($cities as $city)
-                </br>
+                <br>
                 <form action="/home" method="post">
                     @csrf
                     <input type="hidden" name="city_id" value={{$city->id}}>
@@ -110,7 +125,6 @@
 
 
             </div>
-        </div>
         </div>
     </center>
 </body>

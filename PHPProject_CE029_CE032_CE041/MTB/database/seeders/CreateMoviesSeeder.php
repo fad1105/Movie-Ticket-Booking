@@ -20,8 +20,8 @@ class CreateMoviesSeeder extends Seeder
         	[
                'movie_name'=>'Roohi',
                'language'=>'Hindi',
-               'trailer_link'=>'https://www.youtube.com/embeded/mTT_V0t89MI',
-               'cinema_tags'=> 'HollyWood',
+               'trailer_link'=>'https://www.youtube.com/embed/mTT_V0t89MI',
+               'cinema_tags'=> 'BollyWood',
                'genres' => 'Horrer',
                'release_date' => '2021-02-12',
                'duration' => '03:00:00',
@@ -31,7 +31,7 @@ class CreateMoviesSeeder extends Seeder
            [
                'movie_name'=>'Bahubali 2',
                'language'=>'Hindi',
-               'trailer_link'=>'https://www.youtube.com/embeded/G62HrubdD6o',
+               'trailer_link'=>'https://www.youtube.com/embed/G62HrubdD6o',
                'cinema_tags'=> 'TollyWood',
                'genres' => 'Action',
                'release_date' => '2017-04-28',

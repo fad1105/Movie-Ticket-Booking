@@ -30,10 +30,6 @@ Route::post('/show_movie_detail' ,[BookingController::class, 'show_movie_detail'
 
 Route::get('/location', [App\Http\Controllers\HomeController::class, 'index'])->name('location')->middleware('is_customer'); 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/showbookings', function () {
-    return view('userShow');
-})->name('user.show');
-
 //for Admin
 
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
@@ -103,7 +99,6 @@ Route::get('/seat_booking');
 Route::post('/booking' ,[BookingController::class, 'booking'])->middleware('is_customer'); 
 
 Route::post('/show_ticket' ,[BookingController::class, 'show_ticket'])->middleware('is_customer'); 
-
 Route::get('/show_ticket');
 
 Route::post('/show_ticket' ,[BookingController::class, 'show_ticket'])->middleware('is_customer'); 

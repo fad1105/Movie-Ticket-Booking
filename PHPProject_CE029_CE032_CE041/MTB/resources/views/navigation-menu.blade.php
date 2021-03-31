@@ -11,14 +11,6 @@
                 </div>
 
                 <!-- Navigation Links -->
-                @if(auth()->user()->is_customer == 1) 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"> 
-                    <x-jet-nav-link href="{{ route('user.show') }}" :active="request()->routeIs('user.show')">
-                        {{ __('Booking') }}
-                    </x-jet-nav-link>
-                </div>
-                @endif
-
                 @if(auth()->user()->is_branch == 1) 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"> 
                     <x-jet-nav-link href="{{ route('branch.home') }}" :active="request()->routeIs('branch.home')">
@@ -210,14 +202,6 @@
                 {{ __('Shows') }}
             </x-jet-responsive-nav-link>
         </div> 
-        @endif 
-
-        @if(auth()->user()->is_admin == 1)
-        <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('user.show') }}" :active="request()->routeIs('user.show')">
-                {{ __('Booking') }}
-            </x-jet-responsive-nav-link>
-        </div>
         @endif
 
         @if(auth()->user()->is_admin == 1)

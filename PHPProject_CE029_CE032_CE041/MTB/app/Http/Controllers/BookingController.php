@@ -54,8 +54,6 @@ class BookingController extends Controller
 
     }
 
-
-
     public function show_ticket(Request $req)
     {
         $per_seat_price = 100;
@@ -84,10 +82,6 @@ class BookingController extends Controller
         $city = City::where('id', $show[0]->city_id)->get();
         return view('show_ticket', ['count' => $count, 'seat' => $seat, 'show' => $show,'movies' => $movies, 'city' => $city]);
     }
-
-
-
-
 
     public function show_movie_detail(Request $req)
     {
